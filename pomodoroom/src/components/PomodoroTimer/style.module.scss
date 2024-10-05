@@ -1,0 +1,67 @@
+@import "../../styles/variables.scss";
+
+.timerWrapper {
+    background-color: rgba(229, 230, 224, 0.92);
+    width: 700px;
+    min-height: 400px;
+    border-radius: $radius;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.topAction {
+    display: flex;
+    gap: 24px;
+
+    .button {
+        background-color: $light-blue;
+        color: $white;
+        border: none;
+        outline: none;
+        border-radius: $radius;
+        padding: 8px 14px;
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 1px;
+
+        &:hover{
+            cursor: pointer;
+            background: $blue;
+        }
+
+        &.active{
+            border: 2px solid $white;
+            background-color: $blue;
+        }
+    }
+}
+
+
+.timer {
+    font-size: 120px;
+    font-weight: bold;
+    color: $blue;
+}
+
+.actionBtn {
+    letter-spacing: 1px;
+    background: $green;
+    color: $gray;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    padding: 20px 50px;
+    border-radius: 10px;
+    font-size: 22px;
+    margin-top: 30px;
+
+
+    &:hover {
+        cursor: pointer;
+    }
+
+}

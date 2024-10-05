@@ -1,35 +1,78 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Todo from "./components/Todo/index";
+import { addToTodos, removeFromTodos } from "./store/slice";
+import { BsPlusCircle } from "react-icons/bs";
+import Pomodoroom from "./components/Pomodoroom"
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  // A hook to access the redux dispatch function.
+  // This is the only way to trigger a state change.
+  const dispatch = useDispatch();
+
+  // A hook to access the redux store's state.
+  // This hook takes a selector function as an argument.
+  // The selector is called with the store state.
+  // state.todos.todos — todos is the name of the reducer and the name of the variable in the initialState.
+  const todos = useSelector((state) => state.todos.todos);
+
+  // A variable used by the input field to store the text.
+  const [text, setText] = useState("");
+
+  // A function to handle the add button.
+  const handleAdd = () => {
+    // If the input field is empty, return.
+    if (text === "") {
+      return;
+    }
+
+    // Dispatch an action to add a todo.
+    dispatch(
+      addToTodos({
+        id: Math.floor(Math.random() * 1000),
+        text,
+        status: "incomplete",
+      })
+    );
+
+    // Reset the input field after adding the todo.
+    setText("");
+  };
+
+  // A function to handle the edit button.
+  const handleEdit = (id) => {
+    // Find the todo with the given id.
+    const existingTodo = todos.find((todo) => todo.id === id);
+
+    // Set the text in the input field to the text of the todo.
+    setText(existingTodo.text);
+
+    // Dispatch an action to remove the todo.
+    dispatch(removeFromTodos(id));
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className="App">
+      <Pomodoroom/>
+      <div className="input">
+        <input
+          type="text"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Add a new task"
+        />
+        <button onClick={handleAdd}>
+          <BsPlusCircle />
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      <div className="todo-list">
+        {todos.map((todo) => (
+          <Todo key={todo.id} todo={todo} handleEdit={handleEdit} />
+        ))}
+      </div>
+    </div>
+  );
+};
 
-export default App
+export default App;

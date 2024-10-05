@@ -1,0 +1,36 @@
+.todo {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 4px 12px 4px 0;
+    border-bottom: 1px solid #727272;
+  
+    .text {
+      flex: 1;
+  
+      .complete {
+        text-decoration: line-through;
+        color: #727272;
+      }
+    }
+  
+    .edit {
+      display: flex;
+      gap: 4px;
+  
+      div {
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+  
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  
+    @media only screen and (max-width: 380px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
