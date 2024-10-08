@@ -10,60 +10,75 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    padding: 20px;
 
-}
-
-.topAction {
-    display: flex;
-    gap: 24px; 
-    padding-bottom: 15px;
-    border-bottom: 2px solid yellow;
-
-    .button {
-        background-color: $light-blue;
+    .sessionHeading {
+        font-size: 40px;
+        margin: 0;
+        padding-bottom: 30px;
         color: $white;
-        border: none;
-        outline: none;
-        border-radius: $radius;
-        padding: 8px 14px;
-        font-weight: 500;
-        font-size: 16px;
-        letter-spacing: 1px;
-
-        &:hover{
-            cursor: pointer;
-            background: $blue;
-        }
-
-        &.active{
-            border: 2px solid $white;
-            background-color: $blue;
-        }
-    }
-}
-
-
-.timer {
-    font-size: 120px;
-    font-weight: bold;
-    color: $blue;
-}
-
-.actionBtn {
-    letter-spacing: 1px;
-    background: $green;
-    color: $gray;
-    font-weight: 600;
-    outline: none;
-    border: none;
-    padding: 20px 50px;
-    border-radius: 10px;
-    font-size: 22px;
-    margin-top: 30px;
-    opacity: 0.8;
-
-    &:hover {
-        cursor: pointer;
+        text-shadow: 1px 1px 2px $dark-blue;
     }
 
+
+    .topAction {
+        display: flex;
+        gap: 24px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid $yellow;
+
+        .button {
+            background-color: $light-blue;
+            color: $white;
+            border: none;
+            outline: none;
+            border-radius: $radius;
+            padding: 8px 14px;
+            font-weight: 500;
+            font-size: 16px;
+            letter-spacing: 1px;
+
+            &:hover {
+                cursor: pointer;
+                background: $blue;
+            }
+
+            &.active {
+                border: 2px solid $white;
+                background-color: $blue;
+            }
+        }
+    }
+
+    .timer {
+        font-size: 120px;
+        font-weight: bold;
+        color: $light-blue;
+    }
+
+    .actionBtnWrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+        gap: 35px;
+
+        .actionBtn {
+            letter-spacing: 1px;
+            background: $green;
+            color: $gray;
+            font-weight: 600;
+            outline: none;
+            border: none;
+            padding: 20px 50px;
+            border-radius: 10px;
+            font-size: 22px;
+            opacity: 0.8;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+        }
+    }
 }
