@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./style.module.scss";
-import { BsFillLightbulbFill, BsFillGearFill } from "react-icons/bs";
+import { BsFillGearFill } from "react-icons/bs";
 
 const Navigation = () =>
 {
@@ -13,9 +13,10 @@ const Navigation = () =>
                 
               
                 <input type="checkbox" id="toggle" className={styles.toggleCheckbox} />
-                <label for="toggle" className={styles.toggleLabel}>
+                <label htmlFor="toggle" className={styles.toggleLabel}>
                     <span className={styles.toggleBackground}></span>
                 </label>
+                
                 {/* this will replace BING wallpaper */}
                 {/* <div className={styles.background}></div> */}
             </div>

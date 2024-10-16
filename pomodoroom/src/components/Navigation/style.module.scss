@@ -3,7 +3,7 @@
 .wrapper {
     margin-top: 20px;
     margin-bottom: 40px;
-    background-color: rgba(229, 230, 224, 1);
+    background-color: rgba(229, 230, 224);
     border-radius: $radius;
     padding: 12px 15px;
     display: flex;
@@ -14,7 +14,7 @@
         text-align: left;
         margin: 0;
         font-size: 24px;
-        color: $blue;
+        color:$blue
     }
 
     .btnWrapper {
@@ -22,22 +22,24 @@
         gap: 12px;
 
         .navBtn {
-            background-color: $light-blue;
+            background-color: $blue;
             color: $white;
             border: none;
             outline: none;
             border-radius: $radius;
-            padding: 5px 10px;
+            padding: 8px 12px;
             font-weight: 500;
             font-size: 14px;
             letter-spacing: 1px;
             display: flex;
             align-items: center;
             gap: 8px;
+            opacity: 0.7;
 
             &:hover {
                 cursor: pointer;
                 background: $blue;
+                opacity: 0.9;
             }
 
             &.active {
@@ -49,25 +51,6 @@
 
 }
 
-// SCSS Variables for Day/Night Toggle
-$toggle-height: 30px;
-$toggle-width: 60px; // The width should be twice the height for better visuals
-$toggle-padding: 4px;
-$toggle-circle-size: 22px;
-
-// day and night toggle
-// SCSS Variables
-$blue-background: #C2E9F6;
-$blue-border: #72cce3;
-$blue-color: #96dcee;
-$yellow-background: #fffaa8;
-$yellow-border: #f5eb71;
-$indigo-background: #808fc7;
-$indigo-border: #5d6baa;
-$indigo-color: #6b7abb;
-$gray-border: #e8e8ea;
-$gray-dots: #e8e8ea;
-$white: #fff;
 
 // Styles
 .background {

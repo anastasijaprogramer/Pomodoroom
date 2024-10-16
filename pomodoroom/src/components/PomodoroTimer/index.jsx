@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { startTimer, stopTimer, resetTimer, tick, setMode } from '../../features/timer/timerSlice';
+import { BsFillSkipEndFill } from "react-icons/bs";
 
 import styles from "./style.module.scss";
 
@@ -32,9 +33,9 @@ const PomodoroTimer = () =>
 
     return (
         <div className={styles.timerWrapper}>
-            <h2 className={styles.sessionHeading}>
+            {/* <h2 className={styles.sessionHeading}>
                 {mode === POMODORO ? 'Pomodoro Session' : mode === SHORT_BREAK ? 'Break' : "Long Break"}
-            </h2>
+            </h2> */}
             <div className={styles.topAction}>
                 <button onClick={() => dispatch(setMode(POMODORO))}
                     className={`${styles.button} ${mode === POMODORO ? styles.active : ""}`}>Pomodoro</button>
@@ -56,9 +57,9 @@ const PomodoroTimer = () =>
                 <button onClick={() => dispatch(resetTimer())}>Reset</button>
                 <button onClick={() => isActive ? dispatch(stopTimer()) : dispatch(startTimer())}
                     className={styles.actionBtn}>
-                        {isActive ? 'Stop' : 'Start'}
+                        {isActive ? 'PAUSE' : 'START'}
                 </button>
-                <button onClick={() => dispatch(resetTimer())}>Reset</button>
+                <button onClick={() => dispatch(resetTimer())}><BsFillSkipEndFill/></button>
             </div>
         </div>
     );
